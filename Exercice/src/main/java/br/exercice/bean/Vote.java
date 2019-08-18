@@ -13,12 +13,12 @@ public class Vote {
 	@GeneratedValue
 	@Column(name="id")
 	private int id;
-	@Column(name="vote",nullable=true,length=100,updatable=true)
+	@Column(name="vote",nullable=true,updatable=true)
 	private boolean vote;
-	@Column(name="cpf",nullable=true,length=100,updatable=true)
-	private String cpf;
-	@Column(name="session_id",nullable=true,length=100,updatable=true)
-	private int sessionID;
+	@Column(name="associate_id",nullable=true,length=20,updatable=true)
+	private int associateId;
+	@Column(name="ruling_id",nullable=true,updatable=true)
+	private int rulingId;
 	
 	public int getId() {
 		return id;
@@ -32,18 +32,19 @@ public class Vote {
 	public void setVote(boolean vote) {
 		this.vote = vote;
 	}
-	public String getCpf() {
-		return cpf;
+	public int getAssociateId() {
+		return associateId;
 	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setAssociateId(int associateId) {
+		this.associateId = associateId;
 	}
-	public int getSessionID() {
-		return sessionID;
+	public int getRulingId() {
+		return rulingId;
 	}
-	public void setSessionID(int sessionID) {
-		this.sessionID = sessionID;
-	} 
+	public void setRulingId(int rulingId) {
+		this.rulingId = rulingId;
+	}
+	
 	
 	
 
