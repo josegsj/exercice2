@@ -1,9 +1,12 @@
 package br.exercice.bean;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,10 +18,10 @@ public class Vote {
 	private int id;
 	@Column(name="vote",nullable=true,updatable=true)
 	private boolean vote;
-	@Column(name="associate_id",nullable=true,length=20,updatable=true)
-	private int associateId;
-	@Column(name="ruling_id",nullable=true,updatable=true)
-	private int rulingId;
+	@OneToOne(cascade=CascadeType.ALL)
+	private Associate associate;
+	@ManyToOne()
+	private Session session;
 	
 	public int getId() {
 		return id;
@@ -32,18 +35,7 @@ public class Vote {
 	public void setVote(boolean vote) {
 		this.vote = vote;
 	}
-	public int getAssociateId() {
-		return associateId;
-	}
-	public void setAssociateId(int associateId) {
-		this.associateId = associateId;
-	}
-	public int getRulingId() {
-		return rulingId;
-	}
-	public void setRulingId(int rulingId) {
-		this.rulingId = rulingId;
-	}
+
 	
 	
 	

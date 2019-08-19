@@ -1,6 +1,8 @@
 package com.exercice.controller;
 
 
+import java.util.Date;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.exercice.Dao.RulingDaoRepository;
 import br.exercice.bean.Ruling;
+import br.exercice.bo.SessionBo;
 
 @RestController("AssemblageController")
 public class AssemblageController {
@@ -25,6 +28,23 @@ public class AssemblageController {
 				 ruling.setName(name);
 				 rulingDao.save(ruling);
 				 return new ResponseEntity<String>("OK", HttpStatus.OK); 
+			 }
+		} catch (Exception e) {
+			logger.error(e);
+		}
+		
+		return new ResponseEntity<String>("error", HttpStatus.EXPECTATION_FAILED); 
+	       
+	    }
+	 
+	 
+	 @GetMapping("/createSession/{name,time}")
+	    public ResponseEntity<String> createSession(@PathVariable("name") String name,@PathVariable("time")Date time){
+		 try {
+			 if(name!=null) {
+				 SessionBo sessionBo= new SessionBo(name, time);
+				 if(sessionBo.createSession())
+					 return new ResponseEntity<String>("OK", HttpStatus.OK); 
 			 }
 		} catch (Exception e) {
 			logger.error(e);

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import br.exercice.bean.Ruling;
 
 @Repository
-public interface RulingDaoRepository extends JpaRepository<Ruling, Long> {}  
+public interface RulingDaoRepository extends JpaRepository<Ruling, Long> {
+
+	Ruling getOne(String nameRuling);}  
 
 

@@ -22,7 +22,7 @@ public class Session {
 	private Calendar date; 
 	@OneToOne(cascade=CascadeType.ALL)
 	private Ruling ruling;
-	
+
 	
 	public int getId() {
 		return id;
