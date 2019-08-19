@@ -15,7 +15,7 @@ public class Associate {
 	@GeneratedValue
 	@Column(name="id")
 	private int id;
-	@Column(name="ruling_id",nullable=true,updatable=true)
+	@Column(name="cpf",nullable=true,updatable=true)
 	private String cpf;
 	
 	
