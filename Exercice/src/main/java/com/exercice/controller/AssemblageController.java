@@ -1,4 +1,4 @@
-package com.example.Exercice.Controller;
+package com.exercice.controller;
 
 
 import org.apache.logging.log4j.LogManager;
@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import ch.qos.logback.classic.joran.action.LoggerAction;
 
 @RestController("AssemblageController")
 public class AssemblageController {
