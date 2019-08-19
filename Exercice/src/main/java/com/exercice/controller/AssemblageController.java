@@ -72,6 +72,23 @@ public class AssemblageController {
 	       
 	    }
 	 
+	 @GetMapping("/result/{name}")
+	    public ResponseEntity<String> result(@PathVariable("name")String name){
+		 try {
+			 if(name!=null) {
+				 VoteBo voteBo= new VoteBo(name);
+				 long result=voteBo.result();
+				 if(result>0)
+					 return new ResponseEntity<String>(result+ "-" +name, HttpStatus.OK); 
+			 }
+		} catch (Exception e) {
+			logger.error(e);
+		}
+		
+		return new ResponseEntity<String>("error", HttpStatus.EXPECTATION_FAILED); 
+	       
+	    }
+	 
 	 
 
 }

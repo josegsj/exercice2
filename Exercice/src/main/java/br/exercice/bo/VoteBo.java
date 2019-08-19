@@ -1,5 +1,6 @@
 package br.exercice.bo;
 
+
 import br.exercice.Dao.VoteDao;
 import br.exercice.bean.Associate;
 import br.exercice.bean.Session;
@@ -13,6 +14,13 @@ public class VoteBo {
 	private VoteDao voteDao;
 	
 	
+	
+	
+	public VoteBo(String nameRuling) {
+		super();
+		this.nameRuling = nameRuling;
+	}
+
 	public VoteBo(boolean vote, String cpf,String nameRuling) {
 		super();
 		this.vote = vote;
@@ -36,6 +44,18 @@ public class VoteBo {
 			return false;
 		}
 	}
+	
+	
+	
+	public long result() {
+		SessionBo sessionBo=new SessionBo(nameRuling);
+		Session session = sessionBo.searchByTime();
+		Vote votes= new Vote();
+		votes.setSession(session);
+	return 	 voteDao.count(votes.getSession());
+	}
+	
+	
 	
 	
 	
