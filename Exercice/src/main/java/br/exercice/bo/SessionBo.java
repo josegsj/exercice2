@@ -2,8 +2,7 @@ package br.exercice.bo;
 
 import java.util.Calendar;
 import java.util.Date;
-
-
+import java.util.GregorianCalendar;
 
 import br.exercice.Dao.RulingDaoRepository;
 import br.exercice.Dao.SessionDao;
@@ -24,6 +23,9 @@ public class SessionBo {
 		this.time = time;
 	}
 	
+	public SessionBo(String nameRuling) {
+		
+	}
 	
 	public boolean createSession(){
 		if(nameRuling!=null) {
@@ -47,6 +49,19 @@ public class SessionBo {
 			cal.set(Calendar.MINUTE,1);
 		}
 		  return cal;
+	}
+	
+	public Session searchByTime() {
+		Session s=sessionDao.getOne(nameRuling);
+		if(s.getDate().before(dateNow())) {
+			return s;
+		}else 
+			return null;
+	}
+	
+	private Calendar dateNow() {
+		Calendar cal = new GregorianCalendar();
+		return cal;
 	}
 	
 	

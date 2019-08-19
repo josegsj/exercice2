@@ -6,4 +6,6 @@ import br.exercice.bean.Session;
 
 
 
-public interface SessionDao extends JpaRepository<Session, Long> {} 
+public interface SessionDao extends JpaRepository<Session, Long> {
+
+	Session getOne(String nameRuling);} 

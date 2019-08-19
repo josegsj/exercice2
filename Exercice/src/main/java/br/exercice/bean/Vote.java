@@ -35,6 +35,18 @@ public class Vote {
 	public void setVote(boolean vote) {
 		this.vote = vote;
 	}
+	public Associate getAssociate() {
+		return associate;
+	}
+	public void setAssociate(Associate associate) {
+		this.associate = associate;
+	}
+	public Session getSession() {
+		return session;
+	}
+	public void setSession(Session session) {
+		this.session = session;
+	}
 
 	
 	
